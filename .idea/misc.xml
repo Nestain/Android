@@ -9,8 +9,10 @@
         <entry key="..\:/MyCodes/Java Fundamentals/Firebase/firebase_auth/app/src/main/res/drawable/profit_chart.xml" value="0.21614583333333334" />
         <entry key="..\:/MyCodes/Java Fundamentals/Firebase/firebase_auth/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/MyCodes/Java Fundamentals/Firebase/firebase_auth/app/src/main/res/layout/activity_register.xml" value="0.23357664233576642" />
+        <entry key="..\:/MyCodes/Java Fundamentals/Firebase/firebase_auth/app/src/main/res/layout/activity_settings.xml" value="0.2" />
         <entry key="..\:/MyCodes/Java Fundamentals/Firebase/firebase_auth/app/src/main/res/layout/activity_signedin.xml" value="0.2" />
         <entry key="..\:/MyCodes/Java Fundamentals/Firebase/firebase_auth/app/src/main/res/layout/dialog_resend_verification.xml" value="0.1" />
+        <entry key="..\:/MyCodes/Java Fundamentals/Firebase/firebase_auth/app/src/main/res/layout/dialog_resetpassword.xml" value="0.2" />
         <entry key="..\:/MyCodes/Java Fundamentals/Firebase/firebase_auth/app/src/main/res/menu/menu.xml" value="0.2" />
       </map>
     </option>

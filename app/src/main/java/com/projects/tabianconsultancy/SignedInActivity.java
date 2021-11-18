@@ -1,6 +1,7 @@
 package com.projects.tabianconsultancy;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -10,8 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class SignedInActivity extends AppCompatActivity {
 
@@ -31,7 +35,44 @@ public class SignedInActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: started.");
 
         setupFirebaseAuth();
+        setUserDetails();
 
+    }
+    private void setUserDetails(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if ( user != null ){
+            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                    .setDisplayName("Nelson Luziga")
+                    .setPhotoUri(Uri.parse("https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_960_720.jpg"))
+                    .build();
+            user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()){
+                        Log.d(TAG,"onComplete: User profile updated.");
+                        getUserDetails();
+                    }
+                }
+            });
+        }
+    }
+    private void getUserDetails(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null ){
+            String name = user.getDisplayName();
+            String uid = user.getUid();
+            String email = user.getEmail();
+            Uri photoUrl = user.getPhotoUrl();
+
+            String properties = "uid: " + uid + "\n" +
+                    "name: " + name + "\n" +
+                    "email: " + email + "\n" +
+                    "photoUrl: " + photoUrl;
+
+            Log.d(TAG, "getUserDetails: properties: \n" + properties);
+        }
     }
 
 
